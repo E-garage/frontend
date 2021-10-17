@@ -1,25 +1,26 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 6,
-        "sourceType": "module"
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "no-unused-vars": "warn",
-        "react/prop-types": "off",
-        "react/no-set-state": "off"
-    }
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "react/prop-types": "off",
+    "react/no-set-state": "off",
+    "react/react-in-jsx-scope": "off"
+  }
 }

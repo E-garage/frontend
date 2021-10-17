@@ -1,55 +1,52 @@
-import React from 'react';
-import PhoneImg from '../images/Illustrationphone.png';
-import { FaUserAlt, FaEnvelope, FaKey } from 'react-icons/fa';
-import LoginInput from '../components/LoginInput';
-import { Link } from 'react-router-dom';
+import PhoneImg from "../images/Illustrationphone.png";
+import { FaUserAlt, FaEnvelope, FaKey } from "react-icons/fa";
+import FormInput from "../components/FormInput";
+import { Link } from "react-router-dom";
 
-function Register() {
+const Register = () => {
   return (
     <div className="bg-gray-100 h-screen md:flex items-center justify-around py-10 text-black">
       <img src={PhoneImg} alt="car_img" />
       <div className="bg-white md:w-5/12 border rounded-lg py-10 pl-16 pr-12 font-poppins min-w-96 md:min-w-loginPage">
-        <h1 className="text-4xl">Welcome to</h1>
-        <h1 className="text-indigo-600 text-5xl font-extrabold mt-4">
-          E-garage
+        <h1 className="text-4xl">
+          Welcome to <br />
+          <span className="text-indigo-600 text-5xl font-extrabold">
+            E-garage
+          </span>
         </h1>
 
-        <form className="mt-8">
-          <LoginInput
+        <form className="mt-12">
+          <FormInput
+            icon={<FaUserAlt className="text-3xl" />}
             id="register-name"
             label="Name"
             type="text"
             placeholder="Name"
-          >
-            <FaUserAlt className="text-3xl" />
-          </LoginInput>
+          />
 
-          <LoginInput
+          <FormInput
+            icon={<FaEnvelope className="text-3xl" />}
             id="register-email"
             label="Email"
             type="email"
             placeholder="example@gmail.com"
-          >
-            <FaEnvelope className="text-3xl" />
-          </LoginInput>
+          />
 
-          <LoginInput
+          <FormInput
+            icon={<FaKey className="text-3xl" />}
             id="register-password"
             label="Password"
             type="password"
             placeholder="password"
-          >
-            <FaKey className="text-3xl" />
-          </LoginInput>
+          />
 
-          <LoginInput
+          <FormInput
+            icon={<FaKey className="text-3xl" />}
             id="register-confirm-password"
             label="Confirm Password"
             type="password"
             placeholder="confirm password"
-          >
-            <FaKey className="text-3xl" />
-          </LoginInput>
+          />
 
           <button
             type="submit"
@@ -59,8 +56,8 @@ function Register() {
           </button>
 
           <p className="mt-12 text-center">
-            Do you have an account?{' '}
-            <Link to="/" className="text-indigo-600">
+            Do you have an account?{" "}
+            <Link to="/login" className="text-indigo-600">
               Login
             </Link>
           </p>
@@ -68,6 +65,6 @@ function Register() {
       </div>
     </div>
   );
-}
+};
 
 export default Register;
