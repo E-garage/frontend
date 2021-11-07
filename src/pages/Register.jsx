@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-const RegisterSchema = Yup.object().shape({
+const registerSchema = Yup.object().shape({
   userName: Yup.string()
     .min(3, "Name must be 3 to 50 characters!")
     .max(50, "Name must be 3 to 50 characters!")
@@ -28,23 +28,21 @@ const initialValues = {
   confirmPassword: "",
 };
 
-const Register = () => (
+const handleSubmit = values => {
+  alert(JSON.stringify(values));
+};
+
+const Register = ({ onSubmit = handleSubmit }) => (
   <div className="bg-gray-100 h-screen md:flex items-center justify-around py-10 text-black">
     <img src={PhoneImg} alt="car_img" />
     <div className="bg-white md:w-5/12 border rounded-lg py-10 pl-16 pr-12 font-poppins min-w-96 md:min-w-loginPage">
-      <h1 className="text-4xl">
-        Welcome to <br />
-        <span className="text-indigo-600 text-5xl font-extrabold">
-          E-garage
-        </span>
-      </h1>
+      <h1 className="text-4xl">Welcome to</h1>
+      <h2 className="text-indigo-600 text-5xl font-extrabold mt-1">E-garage</h2>
 
       <Formik
         initialValues={initialValues}
-        validationSchema={RegisterSchema}
-        onSubmit={values => {
-          alert(JSON.stringify(values));
-        }}
+        validationSchema={registerSchema}
+        onSubmit={onSubmit}
       >
         {({ errors, touched }) => (
           <Form className="mt-12">
@@ -55,9 +53,7 @@ const Register = () => (
               label="Name"
               type="text"
               placeholder="Name"
-              error={
-                errors.userName && touched.userName ? errors.userName : null
-              }
+              error={errors.userName && touched.userName && errors.userName}
             />
 
             <FormInput
@@ -67,7 +63,7 @@ const Register = () => (
               label="Email"
               type="email"
               placeholder="example@gmail.com"
-              error={errors.email && touched.email ? errors.email : null}
+              error={errors.email && touched.email && errors.email}
             />
 
             <FormInput
@@ -77,9 +73,7 @@ const Register = () => (
               label="Password"
               type="password"
               placeholder="password"
-              error={
-                errors.password && touched.password ? errors.password : null
-              }
+              error={errors.password && touched.password && errors.password}
             />
 
             <FormInput
@@ -90,16 +84,13 @@ const Register = () => (
               type="password"
               placeholder="confirm password"
               error={
-                errors.confirmPassword && touched.confirmPassword
-                  ? errors.confirmPassword
-                  : null
+                errors.confirmPassword &&
+                touched.confirmPassword &&
+                errors.confirmPassword
               }
             />
 
-            <button
-              type="submit"
-              className="w-full mt-12 bg-indigo-600 text-white p-5 rounded-lg"
-            >
+            <button className="w-full mt-12 bg-indigo-600 text-white p-5 rounded-lg">
               Register
             </button>
           </Form>

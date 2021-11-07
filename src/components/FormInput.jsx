@@ -13,9 +13,7 @@ const FormInput = ({ icon, label, id, error, ...props }) => (
         className="block bg-gray-200 text-md font-bold w-full outline-none"
       />
     </div>
-    {error ? (
-      <p className="absolute top-20 left-0 text-red-600">{error}</p>
-    ) : null}
+    {error && <p className="absolute top-20 left-0 text-red-600">{error}</p>}
   </div>
 );
 
