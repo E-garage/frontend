@@ -19,7 +19,6 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-unused-vars": "off",
     "react/prop-types": "off",
     "react/no-set-state": "off",
     "react/react-in-jsx-scope": "off"
