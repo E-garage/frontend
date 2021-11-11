@@ -9,7 +9,7 @@ import Map from "../images/map.png";
 const Dashboard = () => {
   return (
     <Layout>
-      <div className="flex justify-between mt-5">
+      <div className="flex justify-center 3xl:justify-between flex-wrap">
         <DashboardCard name="Recent Expenses">
           <img src={Chart} alt="chart" width="400" />
         </DashboardCard>
@@ -25,7 +25,7 @@ const Dashboard = () => {
       </div>
       <div className="mt-5 p-5 bg-white rounded-lg">
         <h3 className="text-2xl">Garage</h3>
-        <div className="grid grid-cols-4 gap-y-10 mt-10">
+        <div className="grid xl:grid-cols-2 2xl:grid-cols-4 gap-y-10 mt-10">
           <CarItem />
           <CarItem />
           <CarItem />

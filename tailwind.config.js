@@ -10,7 +10,7 @@ module.exports = {
       width: {
         "9/25": "45%",
         "450": "450px",
-        "517": "517px"
+        "517": "517px",
       },
       minWidth: {
         loginPage: "580px",
@@ -18,6 +18,14 @@ module.exports = {
       fontFamily: {
         poppins: ["Poppins"],
       },
+    },
+    screens: {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px",
+      "3xl": "1800px"
     },
   },
   variants: {

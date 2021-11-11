@@ -1,3 +1,4 @@
+import { useState } from "react";
 import NavItem from "../components/NavItem";
 import { NavLink } from "react-router-dom";
 import {
@@ -12,39 +13,87 @@ import { MdFamilyRestroom } from "react-icons/md";
 import { BsCreditCardFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
+import { GoThreeBars } from "react-icons/go";
+import MediaQuery from "react-responsive";
 
 const Layout = ({ children }) => {
+  const [isNav, setIsNav] = useState(false);
   return (
     <div className="bg-gray-100 text-black h-full flex">
-      <nav className="w-64 pl-2">
-        <NavLink to="/" className="my-5 flex items-end cursor-pointer">
-          <span className="text-5xl text-indigo-800">
-            <GiHomeGarage />
-          </span>
-          <h1 className="text-3xl ml-5">E-garage</h1>
-        </NavLink>
-        <div className="w-3/4 h-px mx-auto bg-gray-300 my-10 rounded-full" />
-        <ul className="list-none">
-          <NavItem icon={<IoHome />} name="Dashboard" exact to="/" />
-          <NavItem icon={<IoCarSportSharp />} name="Cars" to="/cars" />
-          <NavItem
-            icon={<MdFamilyRestroom />}
-            name="Family sharing"
-            to="/family-sharing"
+      <MediaQuery maxWidth={1024}>
+        <div className="relative">
+          <GoThreeBars
+            className="text-4xl text-indigo-800 mt-2 ml-2 cursor-pointer"
+            onClick={() => setIsNav(true)}
           />
-          <NavItem
-            icon={<BsCreditCardFill />}
-            name="Financies"
-            to="/financies"
-          />
-          <NavItem icon={<IoStatsChart />} name="Raports" to="/raports" />
-        </ul>
-      </nav>
-      <div className="w-full py-2 px-10 flex flex-col justify-between min-h-screen">
+
+          <div
+            className={`w-screen h-screen top-0 fixed bg-black bg-opacity-50 ${
+              isNav ? "block" : "hidden"
+            }`}
+            onClick={() => setIsNav(false)}
+          ></div>
+          <nav
+            className={`w-64 pl-2 fixed top-0 bg-gray-100 h-full transition duration-500 ease-in-out transform ${
+              isNav ? "translate-x-0" : "-translate-x-full"
+            }`}
+          >
+            <NavLink to="/" className="my-5 flex items-end cursor-pointer">
+              <span className="text-5xl text-indigo-800">
+                <GiHomeGarage />
+              </span>
+              <h1 className="text-3xl ml-5">E-garage</h1>
+            </NavLink>
+            <div className="w-3/4 h-px mx-auto bg-gray-300 my-10 rounded-full" />
+            <ul className="list-none">
+              <NavItem icon={<IoHome />} name="Dashboard" exact to="/" />
+              <NavItem icon={<IoCarSportSharp />} name="Cars" to="/cars" />
+              <NavItem
+                icon={<MdFamilyRestroom />}
+                name="Family sharing"
+                to="/family-sharing"
+              />
+              <NavItem
+                icon={<BsCreditCardFill />}
+                name="Financies"
+                to="/financies"
+              />
+              <NavItem icon={<IoStatsChart />} name="Raports" to="/raports" />
+            </ul>
+          </nav>
+        </div>
+      </MediaQuery>
+      <MediaQuery minWidth={1025}>
+        <nav className="w-64 pl-2">
+          <NavLink to="/" className="my-5 flex items-end cursor-pointer">
+            <span className="text-5xl text-indigo-800">
+              <GiHomeGarage />
+            </span>
+            <h1 className="text-3xl ml-5">E-garage</h1>
+          </NavLink>
+          <div className="w-3/4 h-px mx-auto bg-gray-300 my-10 rounded-full" />
+          <ul className="list-none">
+            <NavItem icon={<IoHome />} name="Dashboard" exact to="/" />
+            <NavItem icon={<IoCarSportSharp />} name="Cars" to="/cars" />
+            <NavItem
+              icon={<MdFamilyRestroom />}
+              name="Family sharing"
+              to="/family-sharing"
+            />
+            <NavItem
+              icon={<BsCreditCardFill />}
+              name="Financies"
+              to="/financies"
+            />
+            <NavItem icon={<IoStatsChart />} name="Raports" to="/raports" />
+          </ul>
+        </nav>
+      </MediaQuery>
+      <div className="w-full py-2 px-2 lg:px-10 flex flex-col justify-between min-h-screen">
         <div className="bg-indigo-800 h-72 rounded-xl text-white px-4 py-2">
           <div className="flex justify-between">
             <h2 className="text-xl">Dashboard</h2>
-            <div className="flex items-center justify-between w-450">
+            <div className="lg:flex justify-between items-center lg:w-450">
               <div className="bg-white rounded-xl p-2">
                 <FiSearch className="inline text-black text-lg" />
                 <input
@@ -53,18 +102,20 @@ const Layout = ({ children }) => {
                   className="ml-2 w-40 outline-none text-black"
                 />
               </div>
-              <span className="flex items-center cursor-pointer">
-                <FaUserAlt className="mr-2" />
-                Account
-              </span>
-              <IoSettingsSharp className="ml-8 cursor-pointer" />
-              <IoNotifications className="cursor-pointer" />
+              <div className="flex justify-between items-center lg:w-1/2 mt-2 lg:mt-0">
+                <span className="flex items-center cursor-pointer">
+                  <FaUserAlt className="mr-2" />
+                  Account
+                </span>
+                <IoSettingsSharp className="ml-8 cursor-pointer float-right" />
+                <IoNotifications className="cursor-pointer float-right" />
+              </div>
             </div>
           </div>
         </div>
         {children}
-        <footer className="bg-indigo-800 rounded-xl text-white px-4 pt-2 mt-60">
-          <div className="w-1/2 mx-auto text-center mt-5">
+        <footer className="bg-indigo-800 rounded-xl text-white px-4 pt-2 mt-20 lg:mt-60">
+          <div className="lg:w-1/2 mx-auto text-center mt-5">
             <h1 className="text-5xl font-light">Do you need help?</h1>
             <p className="mt-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis in
