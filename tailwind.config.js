@@ -6,6 +6,7 @@ module.exports = {
       boxShadow: {
         loginSocial: "0px 4px 15px rgba(0, 0, 0, 0.11);",
         navItem: "0px 3.5px 5.5px rgba(0, 0, 0, 0.02);",
+        card: "0px 3.5px 5.5px rgba(0, 0, 0, 0.02);",
       },
       width: {
         "9/25": "45%",
@@ -25,7 +26,7 @@ module.exports = {
       "lg": "1024px",
       "xl": "1280px",
       "2xl": "1536px",
-      "3xl": "1800px"
+      "3xl": "1800px",
     },
   },
   variants: {
