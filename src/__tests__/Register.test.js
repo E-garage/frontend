@@ -10,7 +10,7 @@ const MockRegister = ({ onSubmit }) => (
   </Router>
 );
 
-describe("Render Login Page", () => {
+describe("Render Register Page", () => {
   test("Render title", () => {
     render(<MockRegister onSubmit={jest.fn()} />);
 
