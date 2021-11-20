@@ -12,6 +12,7 @@ module.exports = {
         "9/25": "45%",
         "450": "450px",
         "517": "517px",
+        "368": "368px",
       },
       minWidth: {
         loginPage: "580px",

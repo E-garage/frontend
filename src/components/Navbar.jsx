@@ -16,13 +16,13 @@ const Navbar = () => {
             onClick={() => setIsNav(true)}
           />
           <button
-            className={`w-screen h-screen top-0 fixed bg-black bg-opacity-50 ${
+            className={`w-screen h-screen top-0 fixed bg-black bg-opacity-50 z-40 ${
               isNav ? "block" : "hidden"
             }`}
             onClick={() => setIsNav(false)}
           ></button>
           <nav
-            className={`w-64 pl-2 fixed top-0 bg-gray-100 h-full transition duration-500 ease-in-out transform ${
+            className={`w-64 pl-2 fixed top-0 bg-gray-100 h-full transition duration-500 ease-in-out transform z-50 ${
               isNav ? "translate-x-0" : "-translate-x-full"
             }`}
           >
