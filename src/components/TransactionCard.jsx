@@ -1,4 +1,11 @@
-import TransactionRow from "../components/TransactionRow";
+import { BiCart } from "react-icons/bi";
+
+const receivers = [
+  "Tesco Market1",
+  "Tesco Market2",
+  "Tesco Market3",
+  "Tesco Market4",
+];
 
 const TransactionCard = () => (
   <div className="card md:w-500 bg-white p-7 shadow-expenseCard">
@@ -13,11 +20,19 @@ const TransactionCard = () => (
         </tr>
       </thead>
       <tbody>
-        <TransactionRow />
-        <TransactionRow />
-        <TransactionRow />
-        <TransactionRow />
-        <TransactionRow />
+        {receivers.map((receiver, index) => (
+          <tr key={index} className="border-b border-1">
+            <td className="py-3 flex items-center">
+              <span className="bg-gray-200 p-1 mr-2">
+                <BiCart />
+              </span>
+              {receiver}
+            </td>
+            <td className="text-gray-400 py-3">Shopping</td>
+            <td className="text-gray-400 py-3">12 Dec 2020</td>
+            <td className="font-semibold text-right py-3">$75.67</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   </div>

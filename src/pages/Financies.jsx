@@ -42,7 +42,7 @@ const Financies = () => (
         </div>
       </div>
       <div>
-        <h1 className="text-xl font-semibold mt-10 2xl:mt-0">Expenses</h1>
+        <h3 className="text-xl font-semibold mt-10 2xl:mt-0">Expenses</h3>
         <div className="flex justify-around md:justify-between flex-wrap md:w-585 mt-5">
           <div className="card bg-white shadow-expenseCard px-5 py-2 w-40">
             <p className="text-2xl">$550</p>
@@ -72,7 +72,7 @@ const Financies = () => (
               className="progress progress-warning h-3"
               value="50"
               max="100"
-            ></progress>
+            />
             <p className="text-gray-500">Fuel</p>
           </div>
           <p className="text-gray-500 text-2xl">52%</p>
@@ -86,7 +86,7 @@ const Financies = () => (
               className="progress progress-success h-3"
               value="21"
               max="100"
-            ></progress>
+            />
             <p className="text-gray-500">Mechanic</p>
           </div>
           <p className="text-gray-500 text-2xl">21%</p>
@@ -100,7 +100,7 @@ const Financies = () => (
               className="progress progress-info h-3"
               value="74"
               max="100"
-            ></progress>
+            />
             <p className="text-gray-500">Car wash</p>
           </div>
           <p className="text-gray-500 text-2xl">74%</p>
