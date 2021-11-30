@@ -4,12 +4,56 @@ import { FaPen } from "react-icons/fa";
 import Setting from "../components/Setting";
 
 const Account = () => {
-  const [follow, setFollow] = useState(false);
-  const [answer, setAnswer] = useState(false);
-  const [mention, setMention] = useState(false);
-  const [launches, setLaunches] = useState(false);
-  const [updates, setUpdates] = useState(false);
-  const [newsletter, setNewsletter] = useState(false);
+  const [followed, setFollowed] = useState(false);
+  const [answered, setAnswered] = useState(false);
+  const [mentioned, setMentioned] = useState(false);
+  const [launched, setLaunched] = useState(false);
+  const [updated, setUpdated] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+
+  const settings = [
+    {
+      header: "account",
+      items: [
+        {
+          text: "Email me when someone follows",
+          checked: followed,
+          setChecked: setFollowed,
+        },
+        {
+          text: "Email me when someone answers on my post",
+          checked: answered,
+          setChecked: setAnswered,
+        },
+        {
+          text: "Email me when someone mentions me",
+          checked: mentioned,
+          setChecked: setMentioned,
+        },
+      ],
+    },
+    {
+      header: "application",
+      items: [
+        {
+          text: "New launches and projects",
+          checked: launched,
+          setChecked: setLaunched,
+        },
+        {
+          text: "Monthly product updates",
+          checked: updated,
+          setChecked: setUpdated,
+        },
+        {
+          text: "Subscribe to newsletter",
+          checked: subscribed,
+          setChecked: setSubscribed,
+        },
+      ],
+    },
+  ];
+
   return (
     <>
       <div className="bg-white flex items-center p-5 mt-3 rounded-2xl">
@@ -31,38 +75,21 @@ const Account = () => {
       <div className="flex flex-wrap">
         <div className="bg-white rounded-2xl p-5 mt-10 w-517 mr-10">
           <h3 className="text-xl">Account Settings</h3>
-          <h4 className="text-sm mt-5 text-gray-400 uppercase">account</h4>
-          <Setting
-            text="Email me when someone follows"
-            state={follow}
-            setState={setFollow}
-          />
-          <Setting
-            text="Email me when someone answers on my post"
-            state={answer}
-            setState={setAnswer}
-          />
-          <Setting
-            text="Email me when someone mentions me"
-            state={mention}
-            setState={setMention}
-          />
-          <h4 className="text-sm mt-5 text-gray-400 uppercase">application</h4>
-          <Setting
-            text="New launches and projects"
-            state={launches}
-            setState={setLaunches}
-          />
-          <Setting
-            text="Monthly product updates"
-            state={updates}
-            setState={setUpdates}
-          />
-          <Setting
-            text="Subscribe to newsletter"
-            state={newsletter}
-            setState={setNewsletter}
-          />
+          {settings.map((setting, index) => (
+            <div key={index}>
+              <h4 className="text-sm mt-5 text-gray-400 uppercase">
+                {setting.header}
+              </h4>
+              {setting.items.map((item, index) => (
+                <Setting
+                  key={index}
+                  text={item.text}
+                  checked={item.checked}
+                  setChecked={item.setChecked}
+                />
+              ))}
+            </div>
+          ))}
         </div>
         <div className="bg-white rounded-2xl p-5 mt-10 w-517">
           <h3 className="text-xl">Profile Information</h3>
