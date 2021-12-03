@@ -1,11 +1,12 @@
 import React from "react";
 import Income from "../images/income.svg";
 import Expenditure from "../images/expenditure.svg";
-import Circle from "../images/circle.png";
 import { BsDropletHalf } from "react-icons/bs";
 import { FiTruck } from "react-icons/fi";
 import { MdLocalCarWash } from "react-icons/md";
-import Transactions from '../components/Transactions'
+import Transactions from "../components/Transactions";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const Financies = () => (
   <div className="text-gray-800">
@@ -31,14 +32,25 @@ const Financies = () => (
             </div>
           </div>
         </div>
-        <div className="card flex-between flex-row items-center justify-between bg-white shadow-balance sm:w-585 mt-10 p-12">
+        <div className="card flex-between flex-row items-center justify-between bg-white shadow-balance sm:w-585 mt-10 px-12 py-8">
           <div className="flex flex-col justify-between h-24">
             <h3 className="text-lg font-semibold text-gray-600">
               Monthy spending limit
             </h3>
             <p className="text-gray-400">Spend: $3.050 / $5.000</p>
           </div>
-          <img src={Circle} alt="circle" />
+          <CircularProgressbar
+            value={50}
+            maxValue={100}
+            strokeWidth={20}
+            styles={buildStyles({
+              textColor: "white",
+              pathColor: "#F9D46C",
+              trailColor: "#F3F3F3",
+              textSize: "20px",
+            })}
+            className="w-40 h-40 -mr-28"
+          />
         </div>
       </div>
       <div>
@@ -68,12 +80,15 @@ const Financies = () => (
             <BsDropletHalf className="text-yellow-500 text-3xl" />
           </span>
           <div className="w-2/3 md:w-4/5">
-            <progress
-              className="progress progress-warning h-3"
-              value="50"
-              max="100"
+            <ProgressBar
+              completed={52}
+              height={12}
+              isLabelVisible={false}
+              bgColor="#F59E0B"
+              animateOnRender
+              className="mt-1"
             />
-            <p className="text-gray-500">Fuel</p>
+            <p className="text-gray-500 mt-1">Fuel</p>
           </div>
           <p className="text-gray-500 text-2xl">52%</p>
         </div>
@@ -82,12 +97,15 @@ const Financies = () => (
             <FiTruck className="text-green-500 text-3xl" />
           </span>
           <div className="w-2/3 md:w-4/5">
-            <progress
-              className="progress progress-success h-3"
-              value="21"
-              max="100"
+            <ProgressBar
+              completed={21}
+              height={12}
+              isLabelVisible={false}
+              bgColor="#10B981"
+              animateOnRender
+              className="mt-1"
             />
-            <p className="text-gray-500">Mechanic</p>
+            <p className="text-gray-500 mt-1">Mechanic</p>
           </div>
           <p className="text-gray-500 text-2xl">21%</p>
         </div>
@@ -96,12 +114,15 @@ const Financies = () => (
             <MdLocalCarWash className="text-blue-500 text-3xl" />
           </span>
           <div className="w-2/3 md:w-4/5">
-            <progress
-              className="progress progress-info h-3"
-              value="74"
-              max="100"
+            <ProgressBar
+              completed={74}
+              height={12}
+              isLabelVisible={false}
+              bgColor="#3B82F6"
+              animateOnRender
+              className="mt-1"
             />
-            <p className="text-gray-500">Car wash</p>
+            <p className="text-gray-500 mt-1">Car wash</p>
           </div>
           <p className="text-gray-500 text-2xl">74%</p>
         </div>

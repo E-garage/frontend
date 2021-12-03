@@ -10,6 +10,7 @@ import {
   Route,
   // Redirect,
 } from "react-router-dom";
+import 'react-circular-progressbar/dist/styles.css';
 
 const App = () => (
   <div>
