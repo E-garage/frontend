@@ -2,6 +2,7 @@ import React from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Account from "./pages/Account";
 import Layout from "./components/Layout";
 import Raports from './pages/Raports'
 import {
@@ -19,6 +20,7 @@ const App = () => (
         <Layout>
           <Route component={Dashboard} exact path="/" />
           <Route component={Raports} path="/raports" />
+          <Route component={Account} path="/account" />
         </Layout>
         <Route component={Login} path="/login" exact />
         <Route component={Register} path="/register" />

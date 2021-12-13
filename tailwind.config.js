@@ -7,6 +7,7 @@ module.exports = {
         loginSocial: "0px 4px 15px rgba(0, 0, 0, 0.11);",
         navItem: "0px 3.5px 5.5px rgba(0, 0, 0, 0.02);",
         card: "0px 3.5px 5.5px rgba(0, 0, 0, 0.02);",
+        accountEdit: "0px 2px 5.5px rgba(0, 0, 0, 0.06);",
       },
       width: {
         "9/25": "45%",
