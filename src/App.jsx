@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Cars from './pages/Cars'
+import Account from "./pages/Account";
 import Layout from "./components/Layout";
 import {
   BrowserRouter as Router,
@@ -19,6 +20,7 @@ const App = () => (
         <Layout>
           <Route component={Dashboard} exact path="/" />
           <Route component={Cars} path="/cars" />
+          <Route component={Account} path="/account" />
         </Layout>
         <Route component={Login} path="/login" exact />
         <Route component={Register} path="/register" />
