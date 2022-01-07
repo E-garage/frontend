@@ -11,11 +11,16 @@ module.exports = {
       },
       width: {
         "9/25": "45%",
+        "340": "340px",
         "450": "450px",
         "517": "517px",
+        "700": "700px",
       },
       minWidth: {
         loginPage: "580px",
+      },
+      height: {
+        360: "360px",
       },
       fontFamily: {
         poppins: ["Poppins"],

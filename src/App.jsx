@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Cars from './pages/Cars'
 import Account from "./pages/Account";
 import Layout from "./components/Layout";
+import Raports from './pages/Raports'
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +20,7 @@ const App = () => (
         {/* <Redirect exact from="/" to="/login" /> */}
         <Layout>
           <Route component={Dashboard} exact path="/" />
+          <Route component={Raports} path="/raports" />
           <Route component={Cars} path="/cars" />
           <Route component={Account} path="/account" />
         </Layout>
