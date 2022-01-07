@@ -2,6 +2,7 @@ import React from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Cars from './pages/Cars'
 import Account from "./pages/Account";
 import Layout from "./components/Layout";
 import {
@@ -18,6 +19,7 @@ const App = () => (
         {/* <Redirect exact from="/" to="/login" /> */}
         <Layout>
           <Route component={Dashboard} exact path="/" />
+          <Route component={Cars} path="/cars" />
           <Route component={Account} path="/account" />
         </Layout>
         <Route component={Login} path="/login" exact />

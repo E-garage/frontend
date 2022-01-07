@@ -2,7 +2,7 @@ import Car from "../images/dashboard_car.png";
 import { Link } from "react-router-dom";
 
 const CarItem = () => (
-  <div>
+  <div className="px-5">
     <img src={Car} alt="car" className="rounded-2xl" />
     <h4 className="mt-10 font-bold text-xl">BMW 13</h4>
     <textarea
