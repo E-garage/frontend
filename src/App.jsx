@@ -8,6 +8,9 @@ import Family from "./pages/Family";
 import Financies from "./pages/Financies";
 import Raports from "./pages/Raports";
 import PrivateRoute from "./components/PrivateRoute";
+import NotFound from "./pages/NotFound";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from './pages/ResetPassword'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
@@ -16,6 +19,8 @@ const App = () => {
       <Switch>
         <Route component={Login} path="/login" />
         <Route component={Register} path="/register" />
+        <Route component={ForgotPassword} path="/forgot-password" />
+        <Route component={ResetPassword} path="/reset-password" />
         <Layout>
           <PrivateRoute component={Dashboard} exact path="/" />
           <PrivateRoute component={Account} path="/account" />
@@ -24,6 +29,7 @@ const App = () => {
           <PrivateRoute component={Financies} path="/financies" />
           <PrivateRoute component={Raports} path="/raports" />
         </Layout>
+        <Route component={NotFound} />
       </Switch>
     </Router> 
   );
