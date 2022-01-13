@@ -6,6 +6,8 @@ const auth = axios.create({
   baseURL: `${url}/auth`,
 });
 
+auth.defaults.headers.common['authorization'] = 'Bearer ' + localStorage.getItem('token');
+
 export default {
   register: user => auth.post("/signup", user),
   login: user => auth.post("/login", user),

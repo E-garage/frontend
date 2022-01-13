@@ -1,12 +1,13 @@
 import { Redirect, Route } from "react-router-dom";
+import { useSelector } from 'react-redux'
 
 const PrivateRoute = ({ component: Component, ...restOfProps }) => {
-  const isAuthenticated = localStorage.getItem("token") ? true : false;
+  const token = useSelector((state) => state.authReducer.token)
   return (
     <Route
       {...restOfProps}
       render={props =>
-        isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />
+        token ? <Component {...props} /> : <Redirect to="/login" />
       }
     />
   );
