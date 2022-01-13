@@ -1,7 +1,7 @@
 import { Redirect, Route } from "react-router-dom";
 
 const PrivateRoute = ({ component: Component, ...restOfProps }) => {
-  const isAuthenticated = sessionStorage.getItem("token") ? true : false;
+  const isAuthenticated = localStorage.getItem("token") ? true : false;
   return (
     <Route
       {...restOfProps}

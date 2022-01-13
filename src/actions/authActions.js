@@ -1,12 +1,12 @@
 import { LOGIN, LOGOUT, SET_USER } from "./actionTypes";
 
 export const login = data => {
-  sessionStorage.setItem("token", data.accessToken);
+  localStorage.setItem("token", data.accessToken);
   return { type: LOGIN, payload: { data } };
 };
 
 export const logout = () => {
-  sessionStorage.removeItem("token")
+  localStorage.removeItem("token")
   return { type: LOGOUT }
 }
 

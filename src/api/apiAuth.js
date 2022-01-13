@@ -9,6 +9,6 @@ const auth = axios.create({
 export default {
   register: user => auth.post("/signup", user),
   login: user => auth.post("/login", user),
-  logout: () => auth.get("/logout"),
+  logout: () => auth.post("/logout"),
   getUser: () => auth.get("/users/1"),
 };
