@@ -1,39 +1,32 @@
-import React from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import Family from "./pages/Family";
-import Financies from './pages/Financies'
-import Cars from './pages/Cars'
-import Account from "./pages/Account";
 import Layout from "./components/Layout";
-import Raports from './pages/Raports'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  // Redirect,
-} from "react-router-dom";
-import 'react-circular-progressbar/dist/styles.css';
+import Account from "./pages/Account";
+import Cars from "./pages/Cars";
+import Family from "./pages/Family";
+import Financies from "./pages/Financies";
+import Raports from "./pages/Raports";
+import PrivateRoute from "./components/PrivateRoute";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-const App = () => (
-  <div>
+const App = () => {
+  return (
     <Router>
       <Switch>
-        {/* <Redirect exact from="/" to="/login" /> */}
-        <Layout>
-          <Route component={Dashboard} exact path="/" />
-          <Route component={Family} path="/family-sharing" />
-          <Route component={Financies} path="/financies" />
-          <Route component={Raports} path="/raports" />
-          <Route component={Cars} path="/cars" />
-          <Route component={Account} path="/account" />
-        </Layout>
-        <Route component={Login} path="/login" exact />
+        <Route component={Login} path="/login" />
         <Route component={Register} path="/register" />
+        <Layout>
+          <PrivateRoute component={Dashboard} exact path="/" />
+          <PrivateRoute component={Account} path="/account" />
+          <PrivateRoute component={Cars} path="/cars" />
+          <PrivateRoute component={Family} path="/family-sharing" />
+          <PrivateRoute component={Financies} path="/financies" />
+          <PrivateRoute component={Raports} path="/raports" />
+        </Layout>
       </Switch>
-    </Router>
-  </div>
-);
+    </Router> 
+  );
+};
 
 export default App;
