@@ -6,7 +6,7 @@ import { FaEnvelope, FaKey } from "react-icons/fa";
 import FormInput from "../components/FormInput";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import api from "../api/apiAuth";
+import api from "../api/authAPI";
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../actions/authActions";
 import { connect } from "react-redux";
@@ -29,16 +29,14 @@ const Login = ({ login }) => {
   const history = useHistory();
 
   const handleSubmit = async values => {
-    console.log(values)
     try {
       await api.login(values).then(res => {
-        console.log(res.data);
         login(res.data);
         if (rememberMe)
           localStorage.setItem("rememberme", res.data.user.email);
         else localStorage.removeItem("rememberme");
+        history.push("/");
       })
-      history.push("/");
     } catch (err) {
       console.log(err)
       setError(true);

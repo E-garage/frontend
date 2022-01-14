@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -12,8 +14,17 @@ import NotFound from "./pages/NotFound";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from './pages/ResetPassword'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import axios from 'axios';
+
 
 const App = () => {
+  const token = useSelector((state) => state.authReducer.token)
+  useEffect(() => {
+    if(token)
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    else
+      delete axios.defaults.headers.common['Authorization']
+  }, [token])
   return (
     <Router>
       <Switch>

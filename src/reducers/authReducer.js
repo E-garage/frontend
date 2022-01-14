@@ -12,9 +12,9 @@ const initialState = {
 export default function (state = initialState, action) {
   switch(action.type) {
     case LOGIN:
-      return { ...state, user: action.payload.data.user }
+      return { ...state, token: action.payload.data.accessToken, user: action.payload.data.user }
     case LOGOUT:
-      return { ...state, user: null }
+      return { ...state, token: null, user: null }
     case SET_USER:
       return { ...state, user: action.payload.user }
     default:

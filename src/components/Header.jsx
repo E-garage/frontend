@@ -9,15 +9,14 @@ import { FiSearch } from "react-icons/fi";
 import { connect } from "react-redux";
 import { logout } from "../actions/authActions";
 import { useHistory } from "react-router-dom";
-import api from '../api/apiAuth'
+import api from '../api/authAPI'
 
 const Header = ({ logout }) => {
   const history = useHistory();
 
   const logoutUser = async () => {
     try {
-        await api.logout().then(res => {
-          console.log(res)
+        await api.logout().then(() => {
           logout();
           history.push("/login");
         }) 

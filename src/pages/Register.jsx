@@ -5,7 +5,7 @@ import FormInput from "../components/FormInput";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import api from "../api/apiAuth";
+import api from "../api/authAPI";
 
 const registerSchema = Yup.object().shape({
   name: Yup.string()
