@@ -5,7 +5,7 @@ import FormInput from "../components/FormInput";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import api from "../api/apiAuth";
+import api from "../api/resetPasswordAPI";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid Email!").required("Email is required!"),
@@ -21,11 +21,10 @@ const ForgotPassword = () => {
 
   const handleSubmit = async values => {
     try {
-      await api.login(values).then(res => {
-        console.log(res.data);
-      });
+      await api.resetPasswordLink(values)
       setIsSuccess(true)
-    } catch {
+    } catch (err) {
+      console.log(err)
       setError(true);
     }
   };

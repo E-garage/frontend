@@ -5,32 +5,36 @@ import FormInput from "../components/FormInput";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import api from "../api/apiAuth";
+import api from "../api/resetPasswordAPI";
+import { useLocation } from 'react-router-dom'
+import * as qs from 'qs'
 
 const registerSchema = Yup.object().shape({
-  newPassword: Yup.string()
+  password: Yup.string()
     .min(8, "Password must be 8 to 50 characters!")
     .max(50, "Password must be 8 to 50 characters!")
     .required("Password is required!"),
-  confirmNewPassword: Yup.string().oneOf(
-    [Yup.ref("newPassword"), null],
+  password_confirmation: Yup.string().oneOf(
+    [Yup.ref("password"), null],
     "Passwords must match!"
   ),
 });
 
 const initialValues = {
-  newPassword: "",
-  confirmNewPassword: "",
+  password: "",
+  password_confirmation: "",
 };
 
 const Register = () => {
   const [isSuccess, setIsSuccess] = useState(false);
+  const location = useLocation()
+  const params = qs.parse(location.search, { ignoreQueryPrefix: true })
 
   const handleSubmit = async values => {
-    console.log(values)
-    const { newPassword } = values;
+    
     try {
-      await api.register({ newPassword });
+      console.log({ ...params, ...values })
+      await api.resetPassword({ ...params, ...values });
       setIsSuccess(true);
     } catch(err) {
       console.log(err)
@@ -74,24 +78,24 @@ const Register = () => {
             <p className="-mb-10">Please enter your new password here.</p>
               <FormInput
                 icon={<FaKey className="text-3xl" />}
-                name="newPassword"
+                name="password"
                 id="new-password"
                 label="New Password"
                 type="password"
                 placeholder="new password"
-                error={errors.newPassword && touched.newPassword && errors.newPassword}
+                error={errors.password && touched.password && errors.password}
               />
               <FormInput
                 icon={<FaKey className="text-3xl" />}
-                name="confirmNewPassword"
+                name="password_confirmation"
                 id="confirm-confirm-password"
                 label="Confirm New Password"
                 type="password"
                 placeholder="confirm new password"
                 error={
-                  errors.confirmNewPassword &&
-                  touched.confirmNewPassword &&
-                  errors.confirmNewPassword
+                  errors.password_confirmation &&
+                  touched.password_confirmation &&
+                  errors.password_confirmation
                 }
               />
               <button className="w-full mt-12 bg-indigo-600 text-white p-5 rounded-lg">
