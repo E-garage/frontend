@@ -9,8 +9,8 @@ const NavItems = () => (
     <NavItem icon={<IoCarSportSharp />} name="Cars" to="/cars" />
     <NavItem
       icon={<MdFamilyRestroom />}
-      name="Family sharing"
-      to="/family-sharing"
+      name="Families"
+      to="/families"
     />
     <NavItem icon={<BsCreditCardFill />} name="Financies" to="/financies" />
     <NavItem icon={<IoStatsChart />} name="Raports" to="/raports" />
