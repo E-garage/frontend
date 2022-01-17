@@ -1,9 +1,9 @@
 import { createStore, combineReducers } from "redux";
 import authReducer from "./reducers/authReducer";
-import carsReducer from "./reducers/carsReducer"
-import cardsReducer from "./reducers/cardsReducer"
+import carReducer from "./reducers/carReducer"
+import familyReducer from "./reducers/familyReducer"
 
-const reducer = combineReducers({ authReducer, carsReducer, cardsReducer });
+const reducer = combineReducers({ authReducer, carReducer, familyReducer });
 
 const store = createStore(
   reducer,

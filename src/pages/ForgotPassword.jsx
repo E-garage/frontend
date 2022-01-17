@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CarImg from "../images/car.png";
 import { FaEnvelope, FaRegCheckCircle } from "react-icons/fa";
-import FormInput from "../components/FormInput";
+import FormInput from "../components/Auth/FormInput";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
