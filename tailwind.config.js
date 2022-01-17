@@ -24,6 +24,7 @@ module.exports = {
         "familyCard": "368px",
         "600": "600px",
         "700": "700px",
+        "1187": "1187px",
       },
       minWidth: {
         loginPage: "580px",
