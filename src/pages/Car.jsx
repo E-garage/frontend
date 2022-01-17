@@ -7,9 +7,9 @@ import Loader from "react-loader-spinner";
 import api from "../api/carsAPI";
 import EditCar from "../components/Car/EditCar";
 import EditCarSpecs from "../components/Car/EditCarSpecs";
-import CarInspection from "../components/Car/CarInspection"
-import Refueling from "../components/Refueling/Refueling"
-
+import CarInspection from "../components/Car/CarInspection";
+import CarInsurance from "../components/Car/CarInsurance";
+import Refueling from "../components/Refueling/Refueling";
 
 const Car = ({ car, setCar }) => {
   const { id } = useParams();
@@ -116,7 +116,10 @@ const Car = ({ car, setCar }) => {
         </div>
       </div>
       <Refueling />
-      <CarInspection />
+      <div className="flex justify-center gap-10">
+        <CarInspection carId={id} />
+        <CarInsurance carId={id} />
+      </div>
     </div>
   );
 };
