@@ -1,4 +1,4 @@
-import NavItem from "../components/NavItem";
+import NavItem from "./NavItem";
 import { IoHome, IoCarSportSharp, IoStatsChart } from "react-icons/io5";
 import { MdFamilyRestroom } from "react-icons/md";
 import { BsCreditCardFill } from "react-icons/bs";
