@@ -10,9 +10,11 @@ import EditCarSpecs from "../components/Car/EditCarSpecs";
 import CarInspection from "../components/Car/CarInspection";
 import CarInsurance from "../components/Car/CarInsurance";
 import Refueling from "../components/Refueling/Refueling";
+import { useHistory } from 'react-router-dom'
 
 const Car = ({ car, setCar }) => {
   const { id } = useParams();
+  const history = useHistory()
 
   const getCar = async () => {
     await api.getAllCars().then(res => {
@@ -26,7 +28,8 @@ const Car = ({ car, setCar }) => {
   };
 
   const deleteCar = async () => {
-    console.log("car deleted", id);
+    await api.deleteCar(id)
+    history.push('/cars')
   };
 
   useEffect(() => {
@@ -39,7 +42,7 @@ const Car = ({ car, setCar }) => {
         <Loader type="TailSpin" color="#3730A3" height={100} width={100} />
       </div>
     );
-
+  
   const details = car.details;
 
   const table = {
