@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../../api/carsAPI";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { setDetails } from "../../actions/carActions";
 import { Formik, Form } from "formik";
 import CarSpecInput from "./CarSpecInput";
@@ -40,20 +40,22 @@ const specs = [
   { id: "color", label: "Color", name: "color" },
   { id: "drivetrain", label: "Drivetrain", name: "drivetrain" },
   { id: "body", label: "Body", name: "body" },
-  { id: "fuel-type", label: "Fuel Type", name: "Feul_Type" },
+  { id: "fuel-type", label: "Fuel Type", name: "Fuel_Type" },
   { id: "mileage", label: "Mileage [km]", name: "mileage" },
 ];
 
 const EditCarSpecsForm = ({ setDetails, closeModal }) => {
   const [loading, setLoading] = useState(false);
+  const carId = useSelector(state => state.carReducer.car.id)
 
   const handleSubmit = async values => {
+    console.log(values)
     setLoading(true);
     try {
-      await api.updateDetails(values);
+      await api.updateDetails(carId, values);
       setDetails(values);
-    } catch {
-      alert("Failed to add family card");
+    } catch (err) {
+      alert(err);
     } finally {
       setLoading(false);
       closeModal();

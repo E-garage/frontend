@@ -8,16 +8,20 @@ import defaultCar from "../../images/default_car.png";
 const CarForm = ({ addCar, closeModal }) => {
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(defaultCar);
+  const [imageFile, setImageFile] = useState(null);
   const uploadButton = useRef();
 
   const handleSubmit = async values => {
     setLoading(true);
-    console.log(values)
     try {
+      let formData = new FormData();
+      formData.append("thumbnail", imageFile, imageFile.name);
       let car = {
-       values
+        brand: values.brand,
+        description: values.description,
+        formData,
       };
-      await api.addCar(values);
+      await api.addCar(car);
       addCar(car);
     } catch {
       alert("Failed to add family card");
@@ -25,7 +29,6 @@ const CarForm = ({ addCar, closeModal }) => {
       setLoading(false);
       closeModal();
     }
-    console.log(values);
   };
 
   const validateBrand = value => {
@@ -34,6 +37,8 @@ const CarForm = ({ addCar, closeModal }) => {
 
   const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
+      console.log(event.target.files[0])
+      setImageFile(event.target.files[0]);
       setImage(URL.createObjectURL(event.target.files[0]));
     }
   };
@@ -50,7 +55,11 @@ const CarForm = ({ addCar, closeModal }) => {
       {({ errors }) => (
         <Form>
           <h3 className="text-xl font-semibold mb-5">Add your car</h3>
-          <img src={image} alt="preview image" className="mb-5 h-48 rounded-xl" />
+          <img
+            src={image}
+            alt="preview image"
+            className="mb-5 h-48 rounded-xl"
+          />
           <input
             type="file"
             ref={uploadButton}

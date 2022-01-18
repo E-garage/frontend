@@ -8,6 +8,7 @@ export default {
   changeStatus: (id) => axios.post(`${url}/status/${id}`),
   addCar: car => axios.post(`${url}/add`, car),
   updateCar: (id, car) => axios.put(`/${id}`, car),
+  updateDetails: (id, details) => axios.put(`${url}/update/${id}`, details),
   deleteCar: id => axios.delete(`${url}/${id}`),
 }
 

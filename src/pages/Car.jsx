@@ -15,7 +15,14 @@ const Car = ({ car, setCar }) => {
   const { id } = useParams();
 
   const getCar = async () => {
-    await api.getOneCar(id).then(res => setCar(res.data));
+    await api.getAllCars().then(res => {
+      res.data.cars.map(car => {
+        if (car.id == id) {
+          setCar(car);
+          console.log(car);
+        }
+      });
+    });
   };
 
   const deleteCar = async () => {
@@ -23,12 +30,7 @@ const Car = ({ car, setCar }) => {
   };
 
   useEffect(() => {
-    // getCar();
-    setCar({
-      brand: "BMW T4",
-      description:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-    });
+    getCar();
   }, []);
 
   if (!car)
@@ -38,22 +40,27 @@ const Car = ({ car, setCar }) => {
       </div>
     );
 
+  const details = car.details;
+
   const table = {
     col1: {
       rows: [
-        { key: "Engine capacity:", value: "2.01" },
-        { key: "Horse power:", value: "200hp" },
-        { key: "Sits:", value: "5" },
-        { key: "Doors:", value: "5" },
-        { key: "Color:", value: "Silver" },
+        {
+          key: "Engine capacity:",
+          value: details ? details.engine_capacity : "",
+        },
+        { key: "Horse power:", value: details ? details.horse_power : "" },
+        { key: "Sits:", value: details ? details.sits : "" },
+        { key: "Doors:", value: details ? details.doors : "" },
+        { key: "Color:", value: details ? details.color : "" },
       ],
     },
     col2: {
       rows: [
-        { key: "Drivetrain:", value: "FWD" },
-        { key: "Body:", value: "SUV" },
-        { key: "Fuel type:", value: "Petrol" },
-        { key: "Mileage:", value: "150000km" },
+        { key: "Drivetrain:", value:  details ? details.drivetrain : "", },
+        { key: "Body:", value:  details ? details.body : "", },
+        { key: "Fuel type:", value:  details ? details.Fuel_Type : "", },
+        { key: "Mileage:", value:  details ? details.mileage : "", },
       ],
     },
   };

@@ -11,15 +11,15 @@ const CarItems = ({ cars, setCars }) => {
 
   const getAllCars = async () => {
     try {
-      await api.getAllCars().then(response => setCars(response.data));
+      await api.getAllCars().then(response => {console.log(response); setCars(response.data.cars)});
     } catch (err) {
       console.log(err)
     }
   };
 
   useEffect(() => {
-    // getAllCars();
-    setCars([ { id: "1", brand: "BMW T4", description: "sdlfkjdsfldddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" } ])
+    getAllCars();
+    // setCars([ { id: "1", brand: "BMW T4", description: "sdlfkjdsfldddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" } ])
   }, []);
 
   const renderCars = () => {
