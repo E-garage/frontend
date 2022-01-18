@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NavItems from "../components/NavItems";
+import NavItems from "./NavItems";
 import { Link } from "react-router-dom";
 import { GiHomeGarage } from "react-icons/gi";
 import { GoThreeBars } from "react-icons/go";

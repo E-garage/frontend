@@ -1,4 +1,4 @@
-import NavItem from "../components/NavItem";
+import NavItem from "./NavItem";
 import { IoHome, IoCarSportSharp, IoStatsChart } from "react-icons/io5";
 import { MdFamilyRestroom } from "react-icons/md";
 import { BsCreditCardFill } from "react-icons/bs";
@@ -9,8 +9,8 @@ const NavItems = () => (
     <NavItem icon={<IoCarSportSharp />} name="Cars" to="/cars" />
     <NavItem
       icon={<MdFamilyRestroom />}
-      name="Family sharing"
-      to="/family-sharing"
+      name="Families"
+      to="/families"
     />
     <NavItem icon={<BsCreditCardFill />} name="Financies" to="/financies" />
     <NavItem icon={<IoStatsChart />} name="Raports" to="/raports" />

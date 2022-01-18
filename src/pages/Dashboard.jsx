@@ -1,6 +1,6 @@
-import DashboardCard from "../components/DashboardCard";
-import DashboardAction from "../components/DashboardAction";
-import CarItems from "../components/CarItems"
+import DashboardCard from "../components/Dashboard/DashboardCard";
+import DashboardAction from "../components/Dashboard/DashboardAction";
+import CarItems from "../components/Car/CarItems"
 import Chart from "../images/chart.png";
 import Map from "../images/map.png";
 

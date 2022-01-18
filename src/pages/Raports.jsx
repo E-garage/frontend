@@ -48,7 +48,7 @@ const data2 = [
 
 const Raports = () => (
   <div className="mt-10 flex justify-between flex-wrap">
-    <div className="w-700 bg-white rounded-lg shadow-raportCard mb-10">
+    <div className="w-517 lg:w-700 bg-white rounded-lg shadow-raportCard mb-10">
       <div className="flex justify-between items-start p-5 border-b border-1">
         <div className="flex items-start">
           <span className="bg-gray-200 p-2 rounded-full cursor-pointer">
@@ -61,8 +61,8 @@ const Raports = () => (
         </div>
         <BsThreeDotsVertical className="text-2xl cursor-pointer" />
       </div>
-      <div className="lg:flex justify-between items-center lg:h-360 p-5 border-b border-1">
-        <div className="w-1/2 h-full">
+      <div className="lg:flex justify-between items-center lg:h-360 py-5 pr-5 border-b border-1">
+        <div className="lg:w-7/12 h-full">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart width={500} height={300} data={data2}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -80,7 +80,7 @@ const Raports = () => (
           </ResponsiveContainer>
         </div>
         <div>
-          <div className="bg-blue-500 text-white flex items-center py-3 px-5 rounded-xl">
+          <div className="bg-blue-500 text-white flex items-center py-3 rounded-xl w-96 lg:w-72 ml-10 lg:ml-0">
             <CircularProgressbar
               value={75}
               maxValue={100}
@@ -95,10 +95,10 @@ const Raports = () => (
             />
             <div className="ml-5 w-full">
               <h5 className="">Net Income</h5>
-              <p className="text-lg font-bold">$ 9,000</p>
+              <p className="text-lg font-bold">$ 9,000,00</p>
             </div>
           </div>
-          <div className="flex items-center py-3 pr-5 rounded-xl mt-5 border-2">
+          <div className="flex items-center py-3 rounded-xl mt-5 border-2 w-96 lg:w-72 ml-10 lg:ml-0">
             <CircularProgressbar
               value={24}
               maxValue={100}
@@ -144,7 +144,7 @@ const Raports = () => (
         </Pie>
       </PieChart>
       <div className="flex justify-between mt-7">
-        <div className="">
+        <div>
           <div className="flex items-center">
             <FaDotCircle className="text-blue-400" />
             <p className="ml-2 uppercase text-gray-400 text-sm font-medium">
@@ -174,12 +174,10 @@ const Raports = () => (
         </div>
       </div>
     </RaportCard>
-    <div className="w-full flex justify-between flex-wrap -mb-20">
-      <RaportCard />
-      <RaportCard />
-      <RaportCard />
-      <RaportCard />
-    </div>
+    <RaportCard />
+    <RaportCard />
+    <RaportCard />
+    <RaportCard />
   </div>
 );
 

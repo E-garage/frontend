@@ -1,4 +1,4 @@
-import CarItems from "../components/CarItems";
+import CarItems from "../components/Car/CarItems";
 
 const Cars = () => <CarItems />;
 
