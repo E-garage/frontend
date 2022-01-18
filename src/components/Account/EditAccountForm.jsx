@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import api from '../../api/authAPI'
 import { setUser } from '../../actions/authActions'
 import { connect } from 'react-redux'
 
