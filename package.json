@@ -52,8 +52,11 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
+    "@testing-library/cypress": "^8.0.2",
     "autoprefixer": "^9.8.8",
+    "cypress": "^9.2.1",
     "eslint": "^7.11.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-react": "^7.26.1",
     "postcss": "^7.0.39",
     "prettier": "^2.4.1",
