@@ -1,31 +1,34 @@
 import { useState, useRef } from "react";
 import api from "../../api/familyAPI";
 import { connect } from "react-redux";
-import { addCar } from "../../actionsfamilyActions";
+import { addFamilyCar } from "../../actions/familyActions";
 import { Formik, Form, Field } from "formik";
 import defaultCar from "../../images/default_car.png";
 
-const SharedCarForm = ({ addCar, closeModal }) => {
+const SharedCarForm = ({ addFamilyCar, closeModal }) => {
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(defaultCar);
+  const [imageFile, setImageFile] = useState(null);
   const uploadButton = useRef();
 
   const handleSubmit = async values => {
     setLoading(true);
-    console.log(values)
     try {
+      let formData = new FormData();
+      formData.append("thumbnail", imageFile, imageFile.name);
       let car = {
-       values
+        brand: values.brand,
+        description: values.description,
+        formData,
       };
-      await api.addCar(values);
-      addCar(car);
+      await api.addCarToFamily(car);
+      addFamilyCar(car);
     } catch {
-      alert("Failed to add family card");
+      alert("Failed to add car");
     } finally {
       setLoading(false);
       closeModal();
     }
-    console.log(values);
   };
 
   const validateBrand = value => {
@@ -34,6 +37,8 @@ const SharedCarForm = ({ addCar, closeModal }) => {
 
   const onImageChange = event => {
     if (event.target.files && event.target.files[0]) {
+      console.log(event.target.files[0])
+      setImageFile(event.target.files[0]);
       setImage(URL.createObjectURL(event.target.files[0]));
     }
   };
@@ -50,7 +55,11 @@ const SharedCarForm = ({ addCar, closeModal }) => {
       {({ errors }) => (
         <Form>
           <h3 className="text-xl font-semibold mb-5">Add your car</h3>
-          <img src={image} alt="preview image" className="mb-5 h-48 rounded-xl" />
+          <img
+            src={image}
+            alt="preview image"
+            className="mb-5 h-48 rounded-xl"
+          />
           <input
             type="file"
             ref={uploadButton}
@@ -105,4 +114,4 @@ const SharedCarForm = ({ addCar, closeModal }) => {
   );
 };
 
-export default connect(null, { addCar })(SharedCarForm);
+export default connect(null, { addFamilyCar })(SharedCarForm);

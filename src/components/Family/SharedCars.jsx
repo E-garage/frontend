@@ -1,22 +1,9 @@
-import { useEffect } from "react";
 import Car from "../../images/dashboard_car.png";
 import AddSharedCar from "./AddSharedCar";
-import { Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
-import api from "../../api/familyAPI";
 import { connect } from "react-redux";
-import { setCars } from "../../actions/carActions";
 
-const SharedCars = ({
-  sharedCars = [
-    {
-      id: "1",
-      brand: "BMW T4",
-      description:
-        "sdlfkjdsfldddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
-    },
-  ],
-}) => {
+const SharedCars = ({ sharedCars }) => {
   const renderCars = () => {
     if (!sharedCars) {
       return (
@@ -52,4 +39,4 @@ const SharedCars = ({
   );
 };
 
-export default SharedCars;
+export default connect(null)(SharedCars);
