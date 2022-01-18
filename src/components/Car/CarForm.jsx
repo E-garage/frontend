@@ -13,6 +13,7 @@ const CarForm = ({ addCar, closeModal }) => {
 
   const handleSubmit = async values => {
     setLoading(true);
+    console.dir(uploadButton.current)
     try {
       let formData = new FormData();
       formData.append("thumbnail", imageFile, imageFile.name);
@@ -24,7 +25,7 @@ const CarForm = ({ addCar, closeModal }) => {
       await api.addCar(car);
       addCar(car);
     } catch {
-      alert("Failed to add family card");
+      alert("Failed to add car");
     } finally {
       setLoading(false);
       closeModal();

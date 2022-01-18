@@ -19,7 +19,6 @@ const CarItems = ({ cars, setCars }) => {
 
   useEffect(() => {
     getAllCars();
-    // setCars([ { id: "1", brand: "BMW T4", description: "sdlfkjdsfldddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" } ])
   }, []);
 
   const renderCars = () => {

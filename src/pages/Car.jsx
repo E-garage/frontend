@@ -9,7 +9,6 @@ import EditCar from "../components/Car/EditCar";
 import EditCarSpecs from "../components/Car/EditCarSpecs";
 import CarInspection from "../components/Car/CarInspection";
 import CarInsurance from "../components/Car/CarInsurance";
-import Refueling from "../components/Refueling/Refueling";
 import { useHistory } from 'react-router-dom'
 
 const Car = ({ car, setCar }) => {
@@ -125,7 +124,6 @@ const Car = ({ car, setCar }) => {
           <EditCarSpecs />
         </div>
       </div>
-      <Refueling />
       <div className="flex justify-center gap-10">
         <CarInspection carId={id} />
         <CarInsurance carId={id} />
