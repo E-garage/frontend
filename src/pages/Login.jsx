@@ -3,7 +3,7 @@ import CarImg from "../images/car.png";
 import GoogleIcon from "../images/google-icon.svg";
 import FacebookIcon from "../images/facebook-icon.svg";
 import { FaEnvelope, FaKey } from "react-icons/fa";
-import FormInput from "../components/FormInput";
+import FormInput from "../components/Auth/FormInput";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import api from "../api/authAPI";
@@ -40,6 +40,9 @@ const Login = ({ login }) => {
     } catch (err) {
       console.log(err)
       setError(true);
+      setTimeout(() => { 
+        setError(false)
+      }, 5000);
     }
   };
 

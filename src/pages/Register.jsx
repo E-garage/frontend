@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PhoneImg from "../images/Illustrationphone.png";
 import { FaUserAlt, FaEnvelope, FaKey, FaRegCheckCircle } from "react-icons/fa";
-import FormInput from "../components/FormInput";
+import FormInput from "../components/Auth/FormInput";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";

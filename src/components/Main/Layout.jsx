@@ -1,6 +1,6 @@
-import Navbar from "../components/Navbar";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Navbar from "./Navbar";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => (
   <div className="bg-gray-100 text-black h-full flex">

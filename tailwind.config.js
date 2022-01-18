@@ -21,8 +21,10 @@ module.exports = {
         "517": "517px",
         "368": "368px",
         "585": "585px",
+        "familyCard": "368px",
         "600": "600px",
         "700": "700px",
+        "1187": "1187px",
       },
       minWidth: {
         loginPage: "580px",
@@ -48,5 +50,5 @@ module.exports = {
       margin: ["first"],
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require('tailwind-scrollbar')],
 };

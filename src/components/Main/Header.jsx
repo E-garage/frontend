@@ -7,9 +7,9 @@ import {
 import { FaUserAlt } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { connect } from "react-redux";
-import { logout } from "../actions/authActions";
+import { logout } from "../../actions/authActions";
 import { useHistory } from "react-router-dom";
-import api from '../api/authAPI'
+import api from '../../api/authAPI'
 
 const Header = ({ logout }) => {
   const history = useHistory();

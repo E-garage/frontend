@@ -4,9 +4,9 @@ import Expenditure from "../images/expenditure.svg";
 import { BsDropletHalf } from "react-icons/bs";
 import { FiTruck } from "react-icons/fi";
 import { MdLocalCarWash } from "react-icons/md";
-import Transactions from "../components/Transactions";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import ProgressBar from "@ramonak/react-progress-bar";
+import Refueling from '../components/Refueling/Refueling'
 
 const Financies = () => (
   <div className="text-gray-800">
@@ -128,7 +128,7 @@ const Financies = () => (
         </div>
       </div>
     </div>
-    <Transactions />
+    <Refueling />
   </div>
 );
 
