@@ -54,7 +54,7 @@ const Families = ({ families, setFamilies, removeFamily }) => {
         <div className="mt-3 border-t border-1 pt-5">
           <div className="w-11/12 flex justify-between float-right">
             <Link
-              to="/families/1"
+              to={`/families/${family.id}`}
               className="border text-green-500 py-1 px-5 rounded"
             >
               view
