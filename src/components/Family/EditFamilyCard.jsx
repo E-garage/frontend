@@ -20,7 +20,7 @@ const customStyles = {
   },
 };
 
-const EditFamilyCard = () => {
+const EditFamilyCard = ({ family }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -45,7 +45,7 @@ const EditFamilyCard = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <EditFamilyCardForm closeModal={closeModal} />
+        <EditFamilyCardForm family={family} closeModal={closeModal} />
       </Modal>
     </>
   );

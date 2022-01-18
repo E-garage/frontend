@@ -59,13 +59,7 @@ const Families = ({ families, setFamilies, removeFamily }) => {
             >
               view
             </Link>
-            <EditFamilyCard
-              id={family.id}
-              familyName={family.name}
-              familyDescription={family.description}
-              isActive={family.isActive}
-              getAllFamilies={getAllFamilies}
-            />
+            <EditFamilyCard family={family} />
             <button
               className="border border-1 py-1 px-6 rounded text-red-500"
               onClick={() => deleteFamily(family.id)}

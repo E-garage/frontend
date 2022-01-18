@@ -59,8 +59,8 @@ export default function (state = initialState, action) {
           family.id === action.payload.id
             ? {
                 ...family,
-                name: action.payload.name,
-                description: action.payload.description,
+                name: action.payload.values.name,
+                description: action.payload.values.description,
               }
             : family
         ),

@@ -28,8 +28,8 @@ export const removeFamily = id => {
   return { type: REMOVE_FAMILY, payload: { id } };
 };
 
-export const editFamily = (id, name, description) => {
-  return { type: EDIT_FAMILY, payload: { id, name, description } };
+export const editFamily = (id, values) => {
+  return { type: EDIT_FAMILY, payload: { id, values } };
 };
 
 
