@@ -4,19 +4,19 @@ import AddFamilyCard from "../components/Family/AddFamilyCard";
 import EditFamilyCard from "../components/Family/EditFamilyCard";
 import Loader from "react-loader-spinner";
 import api from "../api/familyAPI";
-import { connect } from "react-redux";    
+import { connect } from "react-redux";
 import { setFamilies, removeFamily } from "../actions/familyActions";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Families = ({ families, setFamilies, removeFamily }) => {
-
   const getAllFamilies = async () => {
-    await api.getAllFamilies().then(response => setFamilies(response.data));
+    await api
+      .getAllFamilies()
+      .then(response => setFamilies(response.data.families));
   };
 
   useEffect(() => {
-    // getAllFamilyFamilies();
-    setFamilies([{ id: 1, name: 'name', description: '' }])
+    getAllFamilies();
   }, []);
 
   const deleteFamily = async id => {
@@ -53,7 +53,8 @@ const Families = ({ families, setFamilies, removeFamily }) => {
         </div>
         <div className="mt-3 border-t border-1 pt-5">
           <div className="w-11/12 flex justify-between float-right">
-            <Link to="/families/1"
+            <Link
+              to="/families/1"
               className="border text-green-500 py-1 px-5 rounded"
             >
               view

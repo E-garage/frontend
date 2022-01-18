@@ -22,6 +22,7 @@ const FamilyForm = ({ addFamily, closeModal }) => {
 
   const validateName = value => {
     if (!value) return "Name is required!";
+    if (value.length < 5) return "Name must have at least 5 characters!";
   };
 
   return (
