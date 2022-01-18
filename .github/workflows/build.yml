@@ -11,6 +11,7 @@ jobs:
       - name: Build_push-image
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
+          echo ${{ secrets.ENV }} >> .env
           docker login -u ${{ secrets.LOGIN }} -p ${{ secrets.PASS }}
           docker build . -f ./Dockerfile -t ${{ secrets.ACR }}/${{ secrets.APPLICATION }}:latest
           docker push ${{ secrets.ACR }}/${{ secrets.APPLICATION }}:latest
@@ -21,11 +22,9 @@ jobs:
         uses: google-github-actions/auth@v0
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
-
       - name: Set up Cloud SDK
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: google-github-actions/setup-gcloud@v0
-
       - name: Update cluster
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |-
