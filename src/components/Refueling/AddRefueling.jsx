@@ -30,7 +30,6 @@ const formInputs = [
   { id: "horse-power", label: "Fuel Type", name: "FuelType" },
   { id: "sits", label: "Amount", name: "amount" },
   { id: "doors", label: "Total Price", name: "TotalPrice" },
-  { id: "color", label: "Receipt", name: "receipt" },
 ];
 
 const refuelingSchema = yup.object().shape({
@@ -38,7 +37,6 @@ const refuelingSchema = yup.object().shape({
   FuelType: yup.string(),
   amount: yup.number().typeError("This field must be a number"),
   TotalPrice: yup.number().typeError("This field must be a number"),
-  receipt: yup.string(),
 });
 
 const initialValues = {
@@ -46,11 +44,11 @@ const initialValues = {
   FuelType: "",
   amount: "",
   TotalPrice: "",
-  receipt: "",
 };
 
 const AddRefueling = ({ addRefueling }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [receipt, setReceipt] = useState(null)
 
   const [loading, setLoading] = useState(false);
 
@@ -58,10 +56,12 @@ const AddRefueling = ({ addRefueling }) => {
     setLoading(true);
     console.log(values);
     try {
-      await api.addRefueling(values);
-      // setDetails(values);
+      let formData = new FormData();
+      formData.append("receipt", receipt, receipt.name);
+      await api.addRefueling( { ...values, formData } );
+      addRefueling({ ...values, formData })
     } catch {
-      alert("Failed to add family card");
+      alert("Failed to add refueling");
     } finally {
       setLoading(false);
       closeModal();
@@ -74,6 +74,10 @@ const AddRefueling = ({ addRefueling }) => {
 
   function closeModal() {
     setIsOpen(false);
+  }
+
+  const onFileChange = (e) => {
+    setReceipt(e.target.files[0])
   }
 
   return (
@@ -108,8 +112,9 @@ const AddRefueling = ({ addRefueling }) => {
                   error={errors[formInput.name]}
                 />
               ))}
+              <input type="file" onChange={onFileChange} />
               <div className="flex justify-center">
-                <button className="w-48 bg-indigo-600 text-white p-3 rounded-lg">
+                <button className="w-48 mt-5 bg-indigo-600 text-white p-3 rounded-lg">
                   {loading ? "Loading..." : "Add"}
                 </button>
               </div>

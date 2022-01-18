@@ -61,7 +61,7 @@ const Refueling = ({ setRefuelings, removeRefueling }) => {
   };
 
   useEffect(() => {
-    // getRefuelings()
+    getRefuelings()
   }, []);
 
   const deleteRefueling = async id => {
