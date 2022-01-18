@@ -4,7 +4,6 @@ import { FaPen } from "react-icons/fa";
 import Setting from "../components/Account/Setting";
 import { connect } from "react-redux";
 import { setUser } from "../actions/authActions";
-import api from "../api/authAPI";
 import Loader from "react-loader-spinner";
 import EditAccount from '../components/Account/EditAccount'
 
@@ -18,12 +17,7 @@ const Account = ({ user, setUser }) => {
   const [image, setImage] = useState(ProfilePicture)
   const uploadButton = useRef()
 
-  const getUser = async () => {
-    await api.getUser().then(res => setUser(res.data));
-  };
-
   useEffect(() => {
-    // getUser()
     setUser({ username: "Darth Vader", email: "DarthVader@gmail.com" });
   }, []);
 

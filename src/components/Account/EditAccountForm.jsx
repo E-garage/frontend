@@ -18,26 +18,14 @@ const EditAccountForm = ({ setUser, closeModal }) => {
   const [loading, setLoading] = useState(false);
   const handleSubmit = async values => {
     setLoading(true);
-    try {
-      let car = {
-        id: Date.now(),
-        name: `$`,
-        description: "",
-      };
-      await api.getUser(car);
-      setUser(car);
-    } catch {
-      alert("Failed to add family card");
-    } finally {
-      setLoading(false);
-      closeModal();
-    }
-    console.log(values);
+    setUser(values);
+    setLoading(false);
+    closeModal();
   };
 
   return (
     <Formik
-      initialValues={{ name: "Darth Vader", email: "DarthVader@gmail.com" }}
+      initialValues={{ name: "", email: "" }}
       validationSchema={userSchema}
       onSubmit={handleSubmit}
     >
